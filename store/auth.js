@@ -20,11 +20,13 @@ export const actions = {
   }) {
     try {
       const user = await Auth.currentAuthenticatedUser()
-      commi
+      commit('set', user)
+      return user
     } catch (error) {
       commit('set', null)
     }
   },
+
   async register(_, {
     email,
     password
@@ -38,17 +40,18 @@ export const actions = {
 
   async confirmRegistration(_, {
     email,
-    password
+    code
   }) {
     return await Auth.confirmSignUp(email, code)
   },
+
   async login({
     commit
   }, {
     email,
     password
   }) {
-    const user = await Auth.signIn(username, password)
+    const user = await Auth.signIn(email, password)
     commit('set', user)
     return user
   },
