@@ -35,7 +35,7 @@ export default {
   plugins: [{
     src: '~/plugins/amplify.js',
     mode: 'client'
-  }],
+  }, '~/plugins/auth'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,

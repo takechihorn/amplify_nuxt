@@ -2,7 +2,7 @@
   <div class="max-w-md mx-auto pt-6">
     <div>
       <h1 class="mb-3">Register</h1>
-      <div>
+      <div v-if="!$auth.isAuthenticated">
         <form v-if="step === steps.register" @submit.prevent="register">
           <input
             v-model="registerForm.email"
@@ -34,6 +34,12 @@
           <button type="submit" class="button--green">Confirm</button>
         </form>
         <nuxt-link to="/login">Have an account? Login</nuxt-link>
+      </div>
+      <div v-else>
+        You're logged in as {{ $auth.email }}.
+        <button @click="$store.dispatch('auth/logout')" class="button--green">
+          Logout
+        </button>
       </div>
       <div>
         You're logged in go you!

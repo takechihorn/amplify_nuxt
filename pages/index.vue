@@ -5,30 +5,22 @@
       <h1 class="title">
         amplify-nuxt
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div v-if="!$auth.isAuthenticated">
+        <nuxt-link to="/login" class="button--gray">Login</nuxt-link>
+        <nuxt-link to="/register" class="button--green">Register</nuxt-link>
+      </div>
+      <div v-else>
+        <p>You're logged in as {{ $auth.email }}</p>
+        <button @click="$store.dispatch('auth/logout')" class="button--gray">
+          Logout
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style>
@@ -47,16 +39,8 @@ export default {}
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
