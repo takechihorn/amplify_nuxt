@@ -1,6 +1,3 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
 export const listUsers = /* GraphQL */ `
   query ListUsers(
     $filter: ModelUserFilterInput
@@ -15,7 +12,9 @@ export const listUsers = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
       nextToken
     }
@@ -30,8 +29,15 @@ export const getUser = /* GraphQL */ `
       biography
       website
       createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
@@ -46,7 +52,6 @@ export const getPost = /* GraphQL */ `
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -54,7 +59,9 @@ export const getPost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }
@@ -73,7 +80,14 @@ export const listPosts = /* GraphQL */ `
         body
         createdAt
         authorId
-        updatedAt
+        author {
+          id
+          email
+          name
+          biography
+          website
+          createdAt
+        }
       }
       nextToken
     }

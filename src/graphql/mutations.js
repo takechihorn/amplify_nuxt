@@ -1,6 +1,3 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
@@ -13,8 +10,15 @@ export const createUser = /* GraphQL */ `
       biography
       website
       createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
@@ -32,8 +36,15 @@ export const updateUser = /* GraphQL */ `
       biography
       website
       createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
@@ -51,8 +62,15 @@ export const deleteUser = /* GraphQL */ `
       biography
       website
       createdAt
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
@@ -70,7 +88,6 @@ export const createPost = /* GraphQL */ `
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -78,7 +95,9 @@ export const createPost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }
@@ -95,7 +114,6 @@ export const updatePost = /* GraphQL */ `
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -103,7 +121,9 @@ export const updatePost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }
@@ -120,7 +140,6 @@ export const deletePost = /* GraphQL */ `
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -128,7 +147,9 @@ export const deletePost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }

@@ -10,6 +10,9 @@ export const onCreateUser = /* GraphQL */ `
       biography
       website
       createdAt
+      preferences {
+        theme
+      }
       updatedAt
       posts {
         nextToken
@@ -26,6 +29,9 @@ export const onUpdateUser = /* GraphQL */ `
       biography
       website
       createdAt
+      preferences {
+        theme
+      }
       updatedAt
       posts {
         nextToken
@@ -42,6 +48,9 @@ export const onDeleteUser = /* GraphQL */ `
       biography
       website
       createdAt
+      preferences {
+        theme
+      }
       updatedAt
       posts {
         nextToken

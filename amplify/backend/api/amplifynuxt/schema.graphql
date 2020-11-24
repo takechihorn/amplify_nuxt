@@ -19,7 +19,7 @@ type User
   website: String
   createdAt: String!
   preferences: Preferences
-  posts: [Post] @connection(name: "UserPosts")
+  posts: [Post] @connection(name: "UserPosts", keyField: "authorId")
 }
 
 type Preferences {

@@ -10,6 +10,10 @@ class AuthService {
   get user() {
     return this.$store.state.auth.user
   }
+  getid() {
+    if (!this.user) return
+    return this.user.username
+  }
   get email() {
     if (!this.user) return
     return this.user.attributes.email
