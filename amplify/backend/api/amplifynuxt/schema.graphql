@@ -18,7 +18,12 @@ type User
   biography: String
   website: String
   createdAt: String!
+  preferences: Preferences
   posts: [Post] @connection(name: "UserPosts")
+}
+
+type Preferences {
+  theme: String
 }
 
 type Post
