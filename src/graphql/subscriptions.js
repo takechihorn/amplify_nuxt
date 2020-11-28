@@ -1,73 +1,81 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
 export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+  subscription OnCreateUser($id: String) {
+    onCreateUser(id: $id) {
       id
       email
       name
       biography
       website
       createdAt
-      preferences {
-        theme
-      }
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
   }
 `;
 export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+  subscription OnUpdateUser($id: String) {
+    onUpdateUser(id: $id) {
       id
       email
       name
       biography
       website
       createdAt
-      preferences {
-        theme
-      }
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
   }
 `;
 export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+  subscription OnDeleteUser($id: String) {
+    onDeleteUser(id: $id) {
       id
       email
       name
       biography
       website
       createdAt
-      preferences {
-        theme
-      }
-      updatedAt
       posts {
+        items {
+          id
+          title
+          summary
+          body
+          createdAt
+          authorId
+        }
         nextToken
       }
     }
   }
 `;
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost {
-    onCreatePost {
+  subscription OnCreatePost($authorId: String) {
+    onCreatePost(authorId: $authorId) {
       id
       title
       summary
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -75,21 +83,22 @@ export const onCreatePost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost {
-    onUpdatePost {
+  subscription OnUpdatePost($authorId: String) {
+    onUpdatePost(authorId: $authorId) {
       id
       title
       summary
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -97,21 +106,22 @@ export const onUpdatePost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost {
-    onDeletePost {
+  subscription OnDeletePost($authorId: String) {
+    onDeletePost(authorId: $authorId) {
       id
       title
       summary
       body
       createdAt
       authorId
-      updatedAt
       author {
         id
         email
@@ -119,7 +129,9 @@ export const onDeletePost = /* GraphQL */ `
         biography
         website
         createdAt
-        updatedAt
+        posts {
+          nextToken
+        }
       }
     }
   }

@@ -4,22 +4,25 @@ class AuthService {
   constructor(store) {
     this.$store = store
   }
+
   get isAuthenticated() {
     return this.$store.state.auth.isAuthenticated
   }
+
   get user() {
     return this.$store.state.auth.user
   }
-  getid() {
+
+  get id() {
     if (!this.user) return
     return this.user.username
   }
+
   get email() {
     if (!this.user) return
     return this.user.attributes.email
   }
 }
-
 
 export default async ({
   store

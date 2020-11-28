@@ -16,7 +16,8 @@ export const mutations = {
 
 export const actions = {
   async load({
-    commit
+    commit,
+    dispatch
   }) {
     try {
       const user = await Auth.currentAuthenticatedUser()
@@ -27,6 +28,7 @@ export const actions = {
           root: true
         })
       }
+
       return user
     } catch (error) {
       commit('set', null)
@@ -52,13 +54,19 @@ export const actions = {
   },
 
   async login({
-    commit
+    commit,
+    dispatch
   }, {
     email,
     password
   }) {
     const user = await Auth.signIn(email, password)
     commit('set', user)
+
+    await dispatch('user/findOrCreateUser', user, {
+      root: true
+    })
+
     return user
   },
 
@@ -67,8 +75,5 @@ export const actions = {
   }) {
     await Auth.signOut()
     commit('set', null)
-    await dispatch('user/findOrCreateUser', user, {
-      root: true
-    })
   }
 }
