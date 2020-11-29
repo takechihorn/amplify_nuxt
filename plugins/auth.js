@@ -9,6 +9,12 @@ class AuthService {
     return this.$store.state.auth.isAuthenticated
   }
 
+  get isAdmin() {
+    if (!this.user) return
+    const groups = this.user.signInUserSession.access.payload['cognito.groups']
+    return groups && groups.includes('admin')
+  }
+
   get user() {
     return this.$store.state.auth.user
   }

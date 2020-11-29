@@ -24,7 +24,10 @@
         </h4>
         <p>{{ post.summary }}</p>
         <small>By:{{ post.author.email }}</small>
-        <div v-if="post.author.id === $auth.id" class="justify-center text-xs">
+        <div
+          v-if="post.author.id === $auth.id || $auth.isAdmin"
+          class="justify-center text-xs"
+        >
           <nuxt-link :to="`/posts/${post.id}/edit`" class="mr-3"
             >Edit</nuxt-link
           >
